@@ -1,1 +1,11 @@
-<p>rxjs-learning works!</p>
+<div *ngIf="(myArray$ | async) as myArray">
+    <h2>My Objects:</h2>
+    <ul>
+        <li *ngFor="let item of myArray">
+            {{ item.id }}: {{ item.name }}
+        </li>
+    </ul>
+</div>
+<div *ngIf="!(myArray$ | async) as myArray">
+    <h2>Loading...</h2>
+</div>

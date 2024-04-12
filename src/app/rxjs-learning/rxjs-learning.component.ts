@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { NameService } from '../service/name.service';
+
+interface MyObject {
+  name: string;
+  id: number;
+}
 
 @Component({
   selector: 'app-rxjs-learning',
@@ -8,17 +14,18 @@ import { Observable } from 'rxjs';
 })
 export class RxjsLearningComponent implements OnInit {
 
-  ngOnInit(): void {
-    this.agent$ = new Observable((sub) => {
-      try {
-        sub.next("Heshan");
-      } catch (error) {
-        sub.error(error);
-      }
-    });
-    // throw new Error('Method not implemented.');
-  }
+  // studentList = ['test0','test1','test2','test3','test4'];
+  // student$: Observable<string[]> = of(this.studentList);
 
-  agent$!: Observable<string>;
+
+
+
+  myArray$!: Observable<MyObject[]>;
+
+  constructor(private myService: NameService) { }
+
+  ngOnInit() {
+    this.myArray$ = this.myService.getMyObjects();
+  }
 
 }
