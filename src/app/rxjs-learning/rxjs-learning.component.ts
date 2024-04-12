@@ -14,18 +14,20 @@ interface MyObject {
 })
 export class RxjsLearningComponent implements OnInit {
 
-  // studentList = ['test0','test1','test2','test3','test4'];
-  // student$: Observable<string[]> = of(this.studentList);
-
-
-
+  studentList = ['test0', 'test1', 'test2', 'test3', 'test4'];
+  student$: Observable<string[]> = of(this.studentList);
 
   myArray$!: Observable<MyObject[]>;
 
   constructor(private myService: NameService) { }
 
   ngOnInit() {
-    this.myArray$ = this.myService.getMyObjects();
+    this.student$.subscribe((data => {
+      console.log(data);
+
+    }))
+
+    // this.myArray$ = this.myService.getMyObjects();
   }
 
 }
