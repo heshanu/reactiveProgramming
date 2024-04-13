@@ -17,8 +17,9 @@ import { CountComponent } from './count/count.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../src/envirnments/envirnment';
-import { postReducer } from './posts/post-list/state/posts.action';
 import { appReducer } from './store/app.status';
+import { AddPostComponent } from './posts/add-post/add-post.component';
+import { RouterOutlet } from "@angular/router";
 
 
 @NgModule({
@@ -31,8 +32,13 @@ import { appReducer } from './store/app.status';
     HomeComponent,
     HeaderComponent,
     PostListComponent,
-    CountComponent
+    CountComponent,
+    AddPostComponent
   ],
+  providers: [
+    provideClientHydration()
+  ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,10 +50,7 @@ import { appReducer } from './store/app.status';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
-  ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
+    RouterOutlet
+  ]
 })
 export class AppModule { }
