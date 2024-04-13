@@ -14,3 +14,6 @@ export const customDecreament = createAction(
     props<{ count: number }>()
 );
 
+export const changeChannelName = createAction(
+    "changeChannelName");
+

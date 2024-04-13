@@ -1,4 +1,5 @@
-import { increment, decrement, reset, customIncreament, customDecreament } from './counter.action';
+import { counterInterface } from '../../../modal/counter.interface';
+import { increment, decrement, reset, customIncreament, customDecreament, changeChannelName } from './counter.action';
 import { initialState } from './counter.state';
 import { Action, createReducer, on } from '@ngrx/store';
 
@@ -35,9 +36,15 @@ const _counterReducer = createReducer(
             ...state,
             counter: state.counter - action.count
         };
+    }),
+    on(changeChannelName, (state) => {
+        return {
+            ...state,
+            channelName: "heshan umayanga",
+        };
     })
 );
 
-export function counterReducer(state: { counter: number; } | undefined, action: Action) {
+export function counterReducer(state: { counter: number; channelName: string, password: string } | undefined, action: Action) {
     return _counterReducer(state, action);
 }
