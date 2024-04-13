@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { counterInterface } from '../../../modal/counter.interface';
 import { Observable, Subscription } from 'rxjs';
-import { getChannelName } from '../state/counter.selectors';
+import { getChannelName, getCounter } from '../state/counter.selectors';
 
 @Component({
   selector: 'app-counter-output',
@@ -11,25 +11,13 @@ import { getChannelName } from '../state/counter.selectors';
 })
 export class CounterOutputComponent implements OnInit {
 
-  counter!: number;
-  counter$!: Observable<{ counter: number }>;
-
-  addres$!: Observable<any[]>;
-
-  channelName!: string;
-
-  constructor(private store: Store<{ counter: counterInterface, username: counterInterface }>) { }
+  counter$!: Observable<number>;
+  channelName$!: Observable<string>;
+  constructor(private store: Store<{ counter: counterInterface }>) { }
 
   ngOnInit(): void {
-    this.counter$ = this.store.select("counter");
-    this.store.select(getChannelName).subscribe(data => {
-      console.log();
-      this.channelName = data;
-    })
-      ;
-
+    this.counter$ = this.store.select(getCounter);
+    this.channelName$ = this.store.select(getChannelName);
   }
-
-
 
 }

@@ -1,4 +1,4 @@
 <div>
-    <h3 *ngIf="(counter$| async) as count">Counter is: {{count.counter>=0?count.counter:0}}</h3>
+    <h3 *ngIf="(counter$| async) as count">Counter is: {{count>=0?count:0}}</h3>
 </div>
-{{channelName}}
+<h2 *ngIf="(channelName$|async) as channelName">{{channelName}}</h2>

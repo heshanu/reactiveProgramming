@@ -10,6 +10,14 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './comp/counter/state/counter.reducer';
 import { CustomCounterInputComponent } from './comp/counter/custom-counter-input/custom-counter-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
+import { CountComponent } from './count/count.component';
+
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../../src/envirnments/envirnment';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +25,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RxjsLearningComponent,
     CounterButtonComponent,
     CounterOutputComponent,
-    CustomCounterInputComponent
+    CustomCounterInputComponent,
+    HomeComponent,
+    HeaderComponent,
+    PostListComponent,
+    CountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({ counter: counterReducer, }),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    // Instrumentation must be imported after importing StoreModule (config is optional)
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [
     provideClientHydration()
