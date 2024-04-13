@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { counterInterface } from '../../../modal/counter.interface';
-import { customDecreament, customIncreament } from '../state/counter.action';
+import { customDecreament, customIncreament, changeChannelName } from '../state/counter.action';
 
 @Component({
   selector: 'app-custom-counter-input',
@@ -9,6 +9,7 @@ import { customDecreament, customIncreament } from '../state/counter.action';
   styleUrl: './custom-counter-input.component.css'
 })
 export class CustomCounterInputComponent implements OnInit {
+
   val!: number;
 
   constructor(private store: Store<{ counter: counterInterface }>) { }
@@ -25,6 +26,10 @@ export class CustomCounterInputComponent implements OnInit {
     //+ convert to number
     this.store.dispatch(customIncreament({ count: +this.val }));
     console.log(this.val);
+  }
+
+  onChangeChannelName() {
+    this.store.dispatch(changeChannelName());
   }
 
 }
