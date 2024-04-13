@@ -45,6 +45,6 @@ const _counterReducer = createReducer(
     })
 );
 
-export function counterReducer(state: { counter: number; channelName: string, password: string } | undefined, action: Action) {
+export function counterReducer(state: { counter: number; channelName: string } | undefined, action: Action) {
     return _counterReducer(state, action);
 }

@@ -1,4 +1,3 @@
-
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { counterInterface } from '../../../modal/counter.interface';
 
@@ -12,10 +11,4 @@ export const getChannelName = createSelector(getCounterState, (state) => {
     return state.channelName;
 });
 
-export const getPassword = createSelector(getCounterState, (state) => {
-    return state.password;
-});
 
-// export const getAddress = createSelector(getCounterState, (state) => {
-//     return state.address;
-// })
