@@ -17,6 +17,8 @@ import { CountComponent } from './count/count.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../src/envirnments/envirnment';
+import { postReducer } from './posts/post-list/state/posts.action';
+import { appReducer } from './store/app.status';
 
 
 @NgModule({
@@ -34,7 +36,7 @@ import { environment } from '../../src/envirnments/envirnment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter: counterReducer, }),
+    StoreModule.forRoot(appReducer),
     ReactiveFormsModule,
     FormsModule,
     // Instrumentation must be imported after importing StoreModule (config is optional)
