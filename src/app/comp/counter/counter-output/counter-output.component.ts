@@ -11,17 +11,12 @@ import { Observable, Subscription } from 'rxjs';
 export class CounterOutputComponent implements OnInit {
 
   counter!: number;
-
   counter$!: Observable<{ counter: number }>;
 
-  constructor(private store: Store<{ counter: counterInterface }>) { }
-
+  constructor(private store: Store<{ counter: counterInterface, username: counterInterface }>) { }
 
   ngOnInit(): void {
-
     this.counter$ = this.store.select("counter");
-
-
   }
 
 
