@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostListComponent } from './post-list.component';
+import { PostListComponent } from './PostListComponent';
 
 describe('PostListComponent', () => {
   let component: PostListComponent;
@@ -10,8 +10,8 @@ describe('PostListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PostListComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PostListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
