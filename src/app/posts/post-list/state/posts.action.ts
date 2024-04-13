@@ -1,8 +1,13 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import { PostsState, initialState } from '../state/posts.state';
+import { createAction, props } from '@ngrx/store';
+import { PostInterface } from '../../../modal/posts.interface';
 
-const _postReducer = createReducer(initialState);
 
-export function postReducer(state: PostsState | undefined, action: Action) {
-    return _postReducer(state, action);
-}
+export const ADD_POST_ACTION = '[posts page] add post';
+export const REMOVE_POST_ACTION = '[posts page] remove post';
+
+export const addPost = createAction(ADD_POST_ACTION, props<{ post: PostInterface }>());
+
+export const removePost = createAction(
+    REMOVE_POST_ACTION,
+    props<{ postId: string }>()
+);

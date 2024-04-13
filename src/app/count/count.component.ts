@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './count.component.css'
 })
 export class CountComponent {
-
 }

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { PostsState } from './state/posts.state';
 import { PostInterface } from '../../modal/posts.interface';
 import { getPosts } from './state/posts.selector';
+import { removePost } from './state/posts.action';
 
 @Component({
   selector: 'app-post-list',
@@ -20,5 +21,10 @@ export class PostListComponent implements OnInit {
   ngOnInit(): void {
     this.postList$ = this.store.select(getPosts);
   }
+
+  onRemove(): void {
+    alert("deleted");
+  }
+
 
 }
