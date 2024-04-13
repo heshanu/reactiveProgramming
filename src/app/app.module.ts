@@ -12,7 +12,7 @@ import { CustomCounterInputComponent } from './comp/counter/custom-counter-input
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostListComponent } from './posts/post-list/PostListComponent';
 import { CountComponent } from './count/count.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
