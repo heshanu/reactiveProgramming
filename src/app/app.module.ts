@@ -7,12 +7,10 @@ import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
 import { CounterButtonComponent } from './comp/counter/counter-button/counter-button.component';
 import { CounterOutputComponent } from './comp/counter/counter-output/counter-output.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './comp/counter/state/counter.reducer';
 import { CustomCounterInputComponent } from './comp/counter/custom-counter-input/custom-counter-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { PostListComponent } from './posts/post-list/PostListComponent';
 import { CountComponent } from './count/count.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,7 +18,7 @@ import { environment } from '../../src/envirnments/envirnment';
 import { appReducer } from './store/app.status';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { RouterOutlet } from "@angular/router";
-
+import { PostListComponent } from './posts/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +29,9 @@ import { RouterOutlet } from "@angular/router";
     CustomCounterInputComponent,
     HomeComponent,
     HeaderComponent,
-    PostListComponent,
     CountComponent,
-    AddPostComponent
+    AddPostComponent,
+    PostListComponent
   ],
   providers: [
     provideClientHydration()
