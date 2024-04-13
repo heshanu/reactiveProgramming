@@ -1,9 +1,8 @@
-<div *ngIf="(myArray$ | async) as myArray">
+<div *ngIf="(order$ | async) as myArray">
     <h2>My Objects:</h2>
     <ul>
         <li *ngFor="let item of myArray">
-            {{ item.id }}: {{ item.name }}
-        </li>
+
     </ul>
 </div>
 <div #loading>
