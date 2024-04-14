@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostInterface } from '../../modal/posts.interface';
 import { Store } from '@ngrx/store';
-import { addPost, removePost } from '../post-list/state/posts.action'
+import { addPost, deletePost } from '../post-list/state/posts.action'
 
 
 @Component({

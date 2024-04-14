@@ -8,6 +8,7 @@ import { CountComponent } from './count/count.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { DeletePostComponent } from './posts/delete-post/delete-post.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     component: PostListComponent,
     children: [
       { path: 'add', component: AddPostComponent },
-      { path: 'edit/:id', component: EditPostComponent }]
+      { path: 'edit/:id', component: EditPostComponent },
+    ]
   },
   {
     path: 'counter',

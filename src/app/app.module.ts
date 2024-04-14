@@ -20,6 +20,7 @@ import { AddPostComponent } from './posts/add-post/add-post.component';
 import { RouterOutlet } from "@angular/router";
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { DeletePostComponent } from './posts/delete-post/delete-post.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
     CountComponent,
     AddPostComponent,
     PostListComponent,
-    EditPostComponent
+    EditPostComponent,
+    DeletePostComponent
   ],
   providers: [
     provideClientHydration()
