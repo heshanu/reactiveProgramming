@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <h3>Update Post</h3>
+                <hr />
+
+                <form [formGroup]="postForm">
+                    <div class="mb-3">
+                        <label>Title</label>
+                        <input type="text" class="form-control" formControlName="title" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Description</label>
+                        <textarea class="form-control" formControlName="description"></textarea>
+                    </div>
+
+                    <div class="my-3">
+                        <button type="submit" (click)="onUpdate()" class="btn btn-primary">Update Post</button>
+                    </div>
+                </form>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
