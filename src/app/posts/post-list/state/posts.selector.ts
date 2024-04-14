@@ -12,3 +12,5 @@ export const getPostById = createSelector(getPostsState, (state: any, props: any
     return state.posts.find((post: PostInterface) => post.id === props.id);
 });
 
+
+

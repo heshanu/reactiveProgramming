@@ -29,7 +29,10 @@
                         <td>{{ post.id }}</td>
                         <td>{{ post.title }}</td>
                         <td>{{ post.description }}</td>
-                        <td><button [routerLink]="['edit',post.id]">Update</button></td>
+                        <td>
+                            <button [routerLink]="['edit',post.id]">Update</button>
+                            <button (click)="onDelete(post.id)">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

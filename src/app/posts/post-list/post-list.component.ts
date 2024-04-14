@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { PostsState } from './state/posts.state';
 import { PostInterface } from '../../modal/posts.interface';
 import { getPosts } from './state/posts.selector';
-import { removePost, updatePost } from './state/posts.action';
+import { deletePost, updatePost } from './state/posts.action';
 
 @Component({
   selector: 'app-post-list',
@@ -17,6 +17,13 @@ export class PostListComponent implements OnInit {
   postList$!: Observable<PostInterface[]>;
 
   constructor(private store: Store<AppState>) { }
+
+  onDelete(id: any) {
+    if (confirm("Are you sure want to delete")) {
+      this.store.dispatch(deletePost({ id }));
+    }
+
+  }
 
   ngOnInit(): void {
     this.postList$ = this.store.select(getPosts);
