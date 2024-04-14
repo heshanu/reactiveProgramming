@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PostInterface } from '../../modal/posts.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AppState } from '../../store/app.status';
 import { getPostById } from '../post-list/state/posts.selector';
@@ -20,7 +20,7 @@ export class EditPostComponent {
   postForm!: FormGroup;
   postSubscription!: Subscription;
 
-  constructor(private route: ActivatedRoute, private store: Store<AppState>) { }
+  constructor(private router: Router, private route: ActivatedRoute, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -29,7 +29,6 @@ export class EditPostComponent {
         .select(getPostById, { id })
         .subscribe((data) => {
           this.post = data;
-          console.log(data);
           this.createForm();
         });
     });
@@ -54,20 +53,37 @@ export class EditPostComponent {
     }
   }
 
-  onUpdate(): void {
-    console.log("updated");
+  showDescriptionErrors() {
+    const descriptionForm = this.postForm.get('description');
+    if (descriptionForm?.touched && descriptionForm.errors !== null) {
+      if (descriptionForm?.errors?.['required']) {
+        return 'Description is required';
+      }
 
+      if (descriptionForm.errors?.['minlength']) {
+        return 'Description should be of minimum 10 characters length';
+      }
+    }
+    return null; // default return value
+  }
+
+  onSubmit() {
     if (!this.postForm.valid) {
       return;
     }
 
-    const updatedPost: PostInterface = {
-      title: this.postForm.value.title,
-      description: this.postForm.value.description,
+    const title = this.postForm.value.title;
+    const description = this.postForm.value.description;
+
+    const post: PostInterface = {
+      id: this.post.id,
+      title,
+      description,
     };
 
-    console.log(this.postForm.value.title);
-
-    this.store.dispatch(updatePost({ post: updatedPost }));
+    //dispatch the action
+    this.store.dispatch(updatePost({ post }));
+    this.router.navigate(['posts']);
   }
+
 }
