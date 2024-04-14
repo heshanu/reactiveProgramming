@@ -19,6 +19,7 @@ import { appReducer } from './store/app.status';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { RouterOutlet } from "@angular/router";
 import { PostListComponent } from './posts/post-list/post-list.component';
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     HeaderComponent,
     CountComponent,
     AddPostComponent,
-    PostListComponent
+    PostListComponent,
+    EditPostComponent
   ],
   providers: [
     provideClientHydration()
