@@ -14,12 +14,15 @@ const _postReducer = createReducer(
         };
     }),
 
-    on(updatePost, (state: any, { post }) => {
-        // Find the index of the post to be updated
-        const index = state.findIndex((p: any) => p.id === post.id);
+    on(updatePost, (state, action) => {
+        const updatedPosts = state.posts.map((post) => {
+            return action.post.id === post.id ? action.post : post;
+        });
 
-        // If the post is found, update it; otherwise, return the original state
-        return index !== -1 ? [...state.slice(0, index), post, ...state.slice(index + 1)] : state;
+        return {
+            ...state,
+            posts: updatedPosts,
+        };
     })
 );
 
