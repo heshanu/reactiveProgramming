@@ -4,12 +4,10 @@ import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
 import { CounterOutputComponent } from './comp/counter/counter-output/counter-output.component';
 import { HomeComponent } from './home/home.component';
 //import { PostListComponent } from './posts/post-list/PostListComponent';
-import { CountComponent } from './count/count.component';
+import { CountComponent } from './comp/counter/count/count.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
-import { DeletePostComponent } from './posts/delete-post/delete-post.component';
-
 
 const routes: Routes = [
   {
@@ -26,8 +24,10 @@ const routes: Routes = [
   },
   {
     path: 'counter',
-    component: CountComponent
-  },
+    loadChildren:
+      () => import("./module/counter/counter.module").then(m => m.CounterModule)
+  }
+
 
 ];
 
