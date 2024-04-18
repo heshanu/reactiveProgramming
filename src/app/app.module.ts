@@ -4,14 +4,11 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
-import { CounterButtonComponent } from './comp/counter/counter-button/counter-button.component';
-import { CounterOutputComponent } from './comp/counter/counter-output/counter-output.component';
 import { StoreModule } from '@ngrx/store';
-import { CustomCounterInputComponent } from './comp/counter/custom-counter-input/custom-counter-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { CountComponent } from './count/count.component';
+import { CountComponent } from './comp/counter/count/count.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../src/envirnments/envirnment';
@@ -21,21 +18,19 @@ import { RouterOutlet } from "@angular/router";
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { DeletePostComponent } from './posts/delete-post/delete-post.component';
+import { CounterModule } from './module/counter/counter.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RxjsLearningComponent,
-    CounterButtonComponent,
-    CounterOutputComponent,
-    CustomCounterInputComponent,
     HomeComponent,
     HeaderComponent,
     CountComponent,
     AddPostComponent,
     PostListComponent,
     EditPostComponent,
-    DeletePostComponent
+    DeletePostComponent,
   ],
   providers: [
     provideClientHydration()
@@ -47,6 +42,7 @@ import { DeletePostComponent } from './posts/delete-post/delete-post.component';
     StoreModule.forRoot(appReducer),
     ReactiveFormsModule,
     FormsModule,
+    CounterModule,
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
