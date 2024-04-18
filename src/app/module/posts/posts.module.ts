@@ -9,6 +9,9 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { postReducer } from './post-list/state/posts.reducer';
+import { POST_STATE_NAME } from './post-list/state/posts.selector';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { RouterOutlet } from '@angular/router';
     PostsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterOutlet
+    RouterOutlet,
+    StoreModule.forFeature(POST_STATE_NAME, postReducer)
   ]
 })
 export class PostsModule { }
