@@ -33,7 +33,7 @@ import { PostsModule } from './module/posts/posts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({}),
     ReactiveFormsModule,
     FormsModule,
     CounterModule,
