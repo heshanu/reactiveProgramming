@@ -1,7 +1,7 @@
 import { counterReducer } from "../comp/counter/state/counter.reducer";
 import { counterInterface } from "../modal/counter.interface";
-import { postReducer } from "../posts/post-list/state/posts.reducer";
-import { PostsState } from "../posts/post-list/state/posts.state";
+import { postReducer } from "../module/posts/post-list/state/posts.reducer";
+import { PostsState } from "../module/posts/post-list/state/posts.state";
 
 export interface AppState {
     counter: counterInterface;
