@@ -1,5 +1,6 @@
-import { counterReducer } from "../comp/counter/state/counter.reducer";
+
 import { counterInterface } from "../modal/counter.interface";
+import { counterReducer } from "../module/counter/state/counter.reducer";
 import { postReducer } from "../module/posts/post-list/state/posts.reducer";
 import { PostsState } from "../module/posts/post-list/state/posts.state";
 

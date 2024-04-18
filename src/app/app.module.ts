@@ -8,7 +8,6 @@ import { StoreModule } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { CountComponent } from './comp/counter/count/count.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../src/envirnments/envirnment';
@@ -17,6 +16,7 @@ import { appReducer } from './store/app.status';
 import { RouterOutlet } from "@angular/router";
 import { CounterModule } from './module/counter/counter.module';
 import { PostsModule } from './module/posts/posts.module';
+import { AuthModule } from './module/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { PostsModule } from './module/posts/posts.module';
     RxjsLearningComponent,
     HomeComponent,
     HeaderComponent,
-    CountComponent,
   ],
   providers: [
     provideClientHydration()
@@ -38,6 +37,7 @@ import { PostsModule } from './module/posts/posts.module';
     FormsModule,
     CounterModule,
     PostsModule,
+    AuthModule,
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
