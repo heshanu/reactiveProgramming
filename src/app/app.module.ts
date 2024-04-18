@@ -30,7 +30,7 @@ import { CounterModule } from './module/counter/counter.module';
     AddPostComponent,
     PostListComponent,
     EditPostComponent,
-    DeletePostComponent
+    DeletePostComponent,
   ],
   providers: [
     provideClientHydration()

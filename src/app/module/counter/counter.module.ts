@@ -3,21 +3,28 @@ import { CommonModule } from '@angular/common';
 
 import { CounterRoutingModule } from './counter-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CounterComponent } from './counter/counter.component';
 import { CustomCounterInputComponent } from './custom-counter-input/custom-counter-input.component';
 import { CounterButtonComponent } from './counter-button/counter-button.component';
 import { CounterOutputComponent } from './counter-output/counter-output.component';
+import { CounterComponent } from './counter.component';
 
 @NgModule({
   declarations: [
-    CounterComponent,
     CustomCounterInputComponent,
     CounterButtonComponent,
-    CounterOutputComponent
+    CounterOutputComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule,
-    CounterRoutingModule, ReactiveFormsModule, FormsModule
+    CounterRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports: [
+    CustomCounterInputComponent,
+    CounterButtonComponent,
+    CounterOutputComponent
   ]
 })
 export class CounterModule { }
