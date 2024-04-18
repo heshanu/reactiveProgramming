@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { PostInterface } from '../../modal/posts.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { AppState } from '../../store/app.status';
 import { getPostById } from '../post-list/state/posts.selector';
 import { updatePost } from '../post-list/state/posts.action';
+import { PostInterface } from '../../../modal/posts.interface';
+import { AppState } from '../../../store/app.status';
 
 @Component({
   selector: 'app-edit-post',
