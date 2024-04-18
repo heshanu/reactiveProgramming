@@ -1,4 +1,5 @@
-import { PostInterface } from "../../../modal/posts.interface";
+
+import { PostInterface } from "../../../../modal/posts.interface";
 import { PostsState } from "./posts.state";
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 

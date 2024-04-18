@@ -19,6 +19,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { DeletePostComponent } from './posts/delete-post/delete-post.component';
 import { CounterModule } from './module/counter/counter.module';
+import { PostsModule } from './module/posts/posts.module';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CounterModule } from './module/counter/counter.module';
     ReactiveFormsModule,
     FormsModule,
     CounterModule,
+    PostsModule,
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

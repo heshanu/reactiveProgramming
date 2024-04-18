@@ -1,4 +1,4 @@
-import { PostInterface } from "../../../modal/posts.interface";
+import { PostInterface } from "../../../../modal/posts.interface";
 
 export interface PostsState {
     posts: PostInterface[];

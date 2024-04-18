@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PostInterface } from '../../modal/posts.interface';
 import { Store } from '@ngrx/store';
 import { addPost, deletePost } from '../post-list/state/posts.action'
+import { PostInterface } from '../../../modal/posts.interface';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { addPost, deletePost } from '../post-list/state/posts.action'
 export class AddPostComponent {
   postForm!: FormGroup;
 
-  constructor(private store: Store<{ post: PostInterface }>) { }
+  constructor(private store: Store<{ post: PostInterface }>, private router: Router) { }
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
@@ -59,6 +60,7 @@ export class AddPostComponent {
     };
 
     this.store.dispatch(addPost({ post }));
+    this.router.navigate(['posts']);
   }
 
 }
