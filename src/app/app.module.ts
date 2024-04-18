@@ -13,11 +13,8 @@ import { CountComponent } from './comp/counter/count/count.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../src/envirnments/envirnment';
 import { appReducer } from './store/app.status';
-import { AddPostComponent } from './posts/add-post/add-post.component';
+
 import { RouterOutlet } from "@angular/router";
-import { PostListComponent } from './posts/post-list/post-list.component';
-import { EditPostComponent } from './posts/edit-post/edit-post.component';
-import { DeletePostComponent } from './posts/delete-post/delete-post.component';
 import { CounterModule } from './module/counter/counter.module';
 import { PostsModule } from './module/posts/posts.module';
 
@@ -28,10 +25,6 @@ import { PostsModule } from './module/posts/posts.module';
     HomeComponent,
     HeaderComponent,
     CountComponent,
-    AddPostComponent,
-    PostListComponent,
-    EditPostComponent,
-    DeletePostComponent,
   ],
   providers: [
     provideClientHydration()

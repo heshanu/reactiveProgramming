@@ -1,7 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { PostsState, initialState } from '../state/posts.state';
 import { addPost, deletePost, updatePost } from './posts.action';
-import { PostInterface } from '../../../modal/posts.interface';
 
 const _postReducer = createReducer(
     initialState,

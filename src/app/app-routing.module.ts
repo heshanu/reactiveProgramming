@@ -5,10 +5,6 @@ import { CounterOutputComponent } from './comp/counter/counter-output/counter-ou
 import { HomeComponent } from './home/home.component';
 //import { PostListComponent } from './posts/post-list/PostListComponent';
 import { CountComponent } from './comp/counter/count/count.component';
-import { AddPostComponent } from './posts/add-post/add-post.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
-import { EditPostComponent } from './posts/edit-post/edit-post.component';
-
 const routes: Routes = [
   {
     path: '',
