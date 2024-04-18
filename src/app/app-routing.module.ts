@@ -23,6 +23,9 @@ const routes: Routes = [
     path: 'counter',
     loadChildren:
       () => import("./module/counter/counter.module").then(m => m.CounterModule)
+  },
+  {
+    path: "auth", loadChildren: () => import("./module/auth/auth.module").then(m => m.AuthModule)
   }
 
 
