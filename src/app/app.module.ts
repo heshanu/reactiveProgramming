@@ -17,6 +17,7 @@ import { RouterOutlet } from "@angular/router";
 import { CounterModule } from './module/counter/counter.module';
 import { PostsModule } from './module/posts/posts.module';
 import { AuthModule } from './module/auth/auth.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthModule } from './module/auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     ReactiveFormsModule,
     FormsModule,
     CounterModule,
