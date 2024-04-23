@@ -1,9 +1,8 @@
-import { exhaustMap, map } from 'rxjs/operators';
+import { exhaustMap, map, mergeMap } from 'rxjs/operators';
 import { loginSucess, loginStart } from './auth.action';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
-import { User } from '../../../modal/user.interface';
 
 @Injectable()
 export class AuthEffects {
@@ -15,11 +14,12 @@ export class AuthEffects {
             exhaustMap((action) => {
                 return this.authService.login(action.email, action.password).pipe(
                     map((data: any) => {
-                        const user = this.authService.formatUser(data);
-                        return loginSucess({ user });
+                        const formatedUser = this.authService.formatUser(data);
+                        return loginSucess({formatedUser});
                     })
                 );
             })
         );
     });
+
 }

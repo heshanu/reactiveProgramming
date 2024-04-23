@@ -20,6 +20,7 @@ export class LoginComponent {
       password: new FormControl('', [Validators.required]),
     });
   }
+
   onLoginSubmit() {
     console.log(this.loginForm.value);
     const email = this.loginForm.value.email;
