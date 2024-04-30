@@ -12,10 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './state/auth.effect';
 
-
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +23,7 @@ import { AuthEffects } from './state/auth.effect';
     ReactiveFormsModule,
     HttpClientModule,
     EffectsModule.forFeature([AuthEffects]),
-    StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer),
+    StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer)
   ],
   providers: [
     AuthService

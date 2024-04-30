@@ -1,21 +1,6 @@
-<!-- <div class="row">
-    <div class="col-md-12">
-        <div class="my-3">
-            <app-counter-output />
-        </div>
-
-        <div class="my-3">
-            <app-counter-button />
-        </div>
-        <div class="my-3">
-            <app-custom-counter-input />
-        </div>
-    </div>
-</div>
-<app-rxjs-learning /> 
-<router-outlet />-->
 
 <app-header></app-header>
+<app-spinner *ngIf="showLoading|async"/>
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
