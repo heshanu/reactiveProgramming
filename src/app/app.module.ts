@@ -17,6 +17,8 @@ import { RouterOutlet } from "@angular/router";
 import { CounterModule } from './module/counter/counter.module';
 import { PostsModule } from './module/posts/posts.module';
 import { AuthModule } from './module/auth/auth.module';
+import { EffectsModule } from '@ngrx/effects';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { AuthModule } from './module/auth/auth.module';
     RxjsLearningComponent,
     HomeComponent,
     HeaderComponent,
+    SpinnerComponent,
   ],
   providers: [
     provideClientHydration()
@@ -32,7 +35,8 @@ import { AuthModule } from './module/auth/auth.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([]),
     ReactiveFormsModule,
     FormsModule,
     CounterModule,
@@ -44,6 +48,8 @@ import { AuthModule } from './module/auth/auth.module';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     RouterOutlet
+  ],exports: [
+    SpinnerComponent 
   ]
 })
 export class AppModule { }
