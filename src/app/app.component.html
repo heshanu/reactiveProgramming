@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
-            <div>Error Occured</div>
+            <div class="alert alert-danger" *ngIf="showError| async as error">
+                {{ error }}
+              </div>
             <router-outlet></router-outlet>
         </div>
     </div>
