@@ -19,6 +19,7 @@ import { PostsModule } from './module/posts/posts.module';
 import { AuthModule } from './module/auth/auth.module';
 import { EffectsModule } from '@ngrx/effects';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { SignupModule } from './module/signup/signup.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     CounterModule,
     PostsModule,
     AuthModule,
+    SignupModule,
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
