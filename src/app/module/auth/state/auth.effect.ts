@@ -1,5 +1,5 @@
 import { catchError, exhaustMap, map, mergeMap, tap } from 'rxjs/operators';
-import { loginStart, loginSucess } from './auth.action';
+import { loginStart, loginSucess, signupStart, signupSuccess } from './auth.action';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
@@ -46,10 +46,34 @@ export class AuthEffects {
       //direct home page after login sucess
       loginRedirect$ = createEffect(()=>{
         return this.actions$.pipe(
-          ofType(loginSucess),
+          ofType(...[loginSucess, signupSuccess]),
           tap(()=>{
            this.router.navigate(['/']);
           })
         )
       },{dispatch:false});
+
+
+      signUp$ = createEffect(() => {
+        return this.actions$.pipe(
+          ofType(signupStart),
+          exhaustMap((action) => {
+            return this.authService.signUp(action.email, action.password).pipe(
+              map((data) => {
+                this.store.dispatch(setLoadingSpinner({ status: false }));
+                const user = this.authService.formatUser(data);
+                return signupSuccess({ user });
+              }),
+              catchError((errResp) => {
+                this.store.dispatch(setLoadingSpinner({ status: false }));
+                const errorMessage = this.authService.getErrorMessage(
+                  errResp.error.error.message
+                );
+                return of(setErrorMessage({ message: errorMessage }));
+              })
+            );
+          })
+        );
+      });
+      
 }
