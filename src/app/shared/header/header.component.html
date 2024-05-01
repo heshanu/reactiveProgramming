@@ -17,7 +17,13 @@
                     <a class="nav-link" href="#" [routerLink]="['/posts']">Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" [routerLink]="['/auth/login']">Login</a>
+                    <a class="nav-link" href="#" *ngIf="!(isAuthenticated|async)" [routerLink]="['/auth/login']">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" *ngIf="!(isAuthenticated|async)" [routerLink]="['/auth/login']">SignUp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LogOut</a>
                 </li>
             </ul>
         </div>

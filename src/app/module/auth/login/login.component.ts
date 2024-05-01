@@ -25,13 +25,10 @@ export class LoginComponent {
   }
 
   onLoginSubmit() {
-
       console.log(this.loginForm.value);
       this.store.dispatch(setLoadingSpinner({status:true}));
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
       this.store.dispatch(loginStart({ email, password }));
-
-
   }
 }
