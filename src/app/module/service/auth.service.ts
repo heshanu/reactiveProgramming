@@ -6,6 +6,7 @@ import { User } from '../../modal/user.interface';
 import { Observable, timeInterval } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.status';
+import { autoLogout } from '../auth/state/auth.action';
 
 @Injectable({
   providedIn: 'root'
@@ -66,7 +67,7 @@ export class AuthService {
     const timeInterval = expirationDate - todaysDate;
 
     this.timeOutInterval = setTimeout(() => {
-      this.store.dispatch(this.autoLogout());
+      this.store.dispatch(autoLogout());
       //logout functionality or get the refresh token
     }, timeInterval);
   }
@@ -88,9 +89,11 @@ export class AuthService {
     return null;
   }
 
-  autoLogout(): any {
-    throw new Error('Function not implemented.');
+  logout() {
+    localStorage.removeItem('userData');
+    if (this.timeOutInterval) {
+      clearTimeout(this.timeOutInterval);
+      this.timeOutInterval = null;
+    }
   }
 }
-
-
