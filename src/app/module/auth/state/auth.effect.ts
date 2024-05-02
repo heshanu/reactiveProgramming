@@ -17,7 +17,7 @@ export class AuthEffects {
         private store: Store<AppState>,
         private router: Router
       ) {}
-    
+
       login$ = createEffect(() => {
         return this.actions$.pipe(
           ofType(loginStart),
@@ -38,7 +38,7 @@ export class AuthEffects {
                   errResp.error.error.message
                 );
                 console.log(errorMessage);
-                
+
                 return of(setErrorMessage({ message: errorMessage }));
               })
             );
@@ -80,7 +80,7 @@ export class AuthEffects {
           })
         );
       });
-      
+
       autoLogin$ = createEffect(() => {
         return this.actions$.pipe(
           ofType(autoLogin),
@@ -98,11 +98,11 @@ export class AuthEffects {
             ofType(autoLogout),
             map((action) => {
               this.authService.logout();
-              this.router.navigate(['auth']);
+              this.router.navigate(['auth/login']);
             })
           );
         },
         { dispatch: false }
       );
-   
+
 }

@@ -11,14 +11,14 @@ const _authReducer = createReducer(
             user: action.user
         };
     }),
-    
+
     on(signupSuccess, (state, action) => {
         return {
           ...state,
           user: action.user,
         };
     }),
-    
+
     on(autoLogout, (state) => {
         return {
           ...state,
@@ -26,7 +26,7 @@ const _authReducer = createReducer(
         };
     })
 )
-    
+
 
 export function AuthReducer(state: AuthState|undefined, action: Action) {
     return _authReducer(state, action);
