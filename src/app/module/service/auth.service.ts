@@ -7,6 +7,7 @@ import { Observable, timeInterval } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.status';
 import { autoLogout } from '../auth/state/auth.action';
+import { PostInterface } from '../../modal/posts.interface';
 
 @Injectable({
   providedIn: 'root'

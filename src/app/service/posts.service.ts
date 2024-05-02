@@ -35,4 +35,22 @@ export class PostsService {
     );
   }
 
+  updatePost(post: PostInterface) {
+    const postData = {
+      title: post.title,
+      description: post.description
+    };
+
+    return this.http.put(
+      `https://vue-completecourse.firebaseio.com/posts/${post.id}.json`,
+      postData
+    );
+  }
+
+  deletePost(id: string) {
+    return this.http.delete(
+      `https://vue-completecourse.firebaseio.com/posts/${id}.json`
+    );
+  }
+
 }

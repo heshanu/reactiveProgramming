@@ -22,15 +22,11 @@ export class PostListComponent implements OnInit {
     this.store.dispatch(setLoadingSpinner({status:true}));
   }
   postList$!: Observable<PostInterface[]>;
- 
+
   onDelete(id: any) {
     if (confirm("Are you sure want to delete")) {
       this.store.dispatch(deletePost({ id }));
     }
   }
 
-
-
-
-  
 }
