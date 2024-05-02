@@ -18,7 +18,7 @@ export class PostsEffects {
       mergeMap((action) => {
         return this.postsService.getPosts().pipe(
           map((posts) => {
-            this.store.dispatch(setLoadingSpinner({status:true}));
+            this.store.dispatch(setLoadingSpinner({ status: false }));
             return loadPostsSuccess({ posts });
           })
         );

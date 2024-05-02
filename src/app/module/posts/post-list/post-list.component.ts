@@ -19,7 +19,7 @@ export class PostListComponent implements OnInit {
   ngOnInit(): void {
     this.postList$ = this.store.select(getPosts);
     this.store.dispatch(loadPosts());
-    //this.store.dispatch(setLoadingSpinner({status:false}));
+    this.store.dispatch(setLoadingSpinner({status:true}));
   }
   postList$!: Observable<PostInterface[]>;
  
