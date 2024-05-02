@@ -12,6 +12,9 @@ import { RouterOutlet } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from './post-list/state/posts.reducer';
 import { POST_STATE_NAME } from './post-list/state/posts.selector';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { PostsEffects } from './post-list/state/posts.effects';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { POST_STATE_NAME } from './post-list/state/posts.selector';
     FormsModule,
     ReactiveFormsModule,
     RouterOutlet,
-    StoreModule.forFeature(POST_STATE_NAME, postReducer)
+    EffectsModule.forFeature(PostsEffects),
+    StoreModule.forFeature(POST_STATE_NAME, postReducer),
+    HttpClientModule
   ]
 })
 export class PostsModule { }
