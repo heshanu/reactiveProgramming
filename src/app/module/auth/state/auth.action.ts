@@ -10,6 +10,8 @@ export const SIGNUP_SUCCESS = '[auth page] signup success';
 
 export const AUTo_LOGIN_ACTION = '[auth page] auto login action';
 
+export const LOGOUT_ACTION = '[auth page] logout';
+
 export const loginStart =
     createAction(LOGIN_START, props<{ email: string; password: string}>());
 
@@ -26,3 +28,5 @@ export const signupSuccess = createAction(
   );
 
 export const autoLogin=createAction(AUTo_LOGIN_ACTION);  
+
+export const autoLogout=createAction(LOGOUT_ACTION);

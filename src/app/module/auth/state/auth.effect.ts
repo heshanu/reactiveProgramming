@@ -1,5 +1,5 @@
 import { catchError, exhaustMap, map, mergeMap, tap } from 'rxjs/operators';
-import { autoLogin, loginStart, loginSucess, signupStart, signupSuccess } from './auth.action';
+import { autoLogin, autoLogout, loginStart, loginSucess, signupStart, signupSuccess } from './auth.action';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
@@ -44,8 +44,6 @@ export class AuthEffects {
           })
         );
       });
-
-
 
       //direct home page after login sucess
       loginRedirect$ = createEffect(()=>{
@@ -92,5 +90,18 @@ export class AuthEffects {
           })
         );
       });
-    
+
+      logout$ = createEffect(
+        () => {
+          return this.actions$.pipe(
+            ofType(autoLogout),
+            map((action) => {
+              this.authService.logout();
+              this.router.navigate(['auth']);
+            })
+          );
+        },
+        { dispatch: false }
+      );
+   
 }
