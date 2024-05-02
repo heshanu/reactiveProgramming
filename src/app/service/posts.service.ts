@@ -28,4 +28,11 @@ export class PostsService {
       );
   }
 
+  addPost(post: PostInterface): Observable<{ name: string }> {
+    return this.http.post<{ name: string }>(
+      `https://vue-completecourse.firebaseio.com/posts.json`,
+      post
+    );
+  }
+
 }

@@ -15,7 +15,8 @@ export const LOGOUT_ACTION = '[auth page] logout';
 export const loginStart =
     createAction(LOGIN_START, props<{ email: string; password: string}>());
 
-export const loginSucess = createAction(LOGIN_SUCCESS, props<{user: User}>);
+export const loginSuccess = createAction(LOGIN_SUCCESS, 
+  props<{user: User}>);
 
 export const signupStart = createAction(
     SIGNUP_START,
