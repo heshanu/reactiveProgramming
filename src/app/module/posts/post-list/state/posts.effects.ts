@@ -1,8 +1,8 @@
-import { map, mergeMap } from 'rxjs/operators';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { PostsService } from '../../../../service/posts.service';
-import { loadPosts, loadPostsSuccess, addPost, addPostSuccess } from './posts.action';
+import { loadPosts, loadPostsSuccess, addPost, addPostSuccess, updatePost, updatePostSuccess, deletePost, deletePostSuccess } from './posts.action';
 import { setLoadingSpinner } from '../../../../store/shared.actions';
 import { SharedState } from '../../../../store/shared.state';
 import { Store } from '@ngrx/store';
@@ -39,4 +39,33 @@ export class PostsEffects {
       })
     );
   });
+
+  updatePost$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(updatePost),
+      switchMap((action) => {
+        return this.postsService.updatePost(action.post).pipe(
+          map((data) => {
+            return updatePostSuccess({ post: action.post });
+          })
+        );
+      })
+    );
+  });
+
+  deletePost$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(deletePost),
+      switchMap((action) => {
+        return this.postsService.deletePost(action.id).pipe(
+          map((data) => {
+            this.store.dispatch(setLoadingSpinner({status:false}));
+            return deletePostSuccess({ id: action.id });
+
+          })
+        );
+      })
+    );
+  });
+
 }
