@@ -13,7 +13,7 @@ import { PostInterface } from '../../modal/posts.interface';
   providedIn: 'root'
 })
 export class AuthService {
- 
+
   timeOutInterval:any;
 
   constructor(private http: HttpClient,private store: Store<AppState>) { }

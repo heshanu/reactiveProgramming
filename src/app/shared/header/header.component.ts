@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit{
   onLogOut(event:Event) {
       event.preventDefault();
       this.store.dispatch(autoLogout());
+
     //throw new Error('Method not implemented.');
   }
 }
