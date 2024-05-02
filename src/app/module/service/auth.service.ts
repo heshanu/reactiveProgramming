@@ -3,13 +3,18 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../envirnments/envirnment';
 import { AuthResponseData } from '../../modal/auth.responseDataModal';
 import { User } from '../../modal/user.interface';
-import { Observable } from 'rxjs';
+import { Observable, timeInterval } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.status';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+ 
+  timeOutInterval:any;
+
+  constructor(private http: HttpClient,private store: Store<AppState>) { }
 
   login(email: string, password: string): Observable<AuthResponseData> {
     return this.http.post<AuthResponseData>(
@@ -49,5 +54,43 @@ export class AuthService {
     }
   }
 
+  setUserInLocalStorage(user: User) {
+    localStorage.setItem('userData', JSON.stringify(user));
 
+    this.runTimeoutInterval(user);
+  }
+
+  runTimeoutInterval(user: User) {
+    const todaysDate = new Date().getTime();
+    const expirationDate = user.expireDate.getTime();
+    const timeInterval = expirationDate - todaysDate;
+
+    this.timeOutInterval = setTimeout(() => {
+      this.store.dispatch(this.autoLogout());
+      //logout functionality or get the refresh token
+    }, timeInterval);
+  }
+
+  getUserFromLocalStorage() {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      const expirationDate = new Date(userData.expirationDate);
+      const user = new User(
+        userData.email,
+        userData.token,
+        userData.localId,
+        expirationDate
+      );
+      this.runTimeoutInterval(user);
+      return user;
+    }
+    return null;
+  }
+
+  autoLogout(): any {
+    throw new Error('Function not implemented.');
+  }
 }
+
+
