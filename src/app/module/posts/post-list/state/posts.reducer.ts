@@ -6,7 +6,7 @@ const _postReducer = createReducer(
     initialState,
     on(addPostSuccess, (state, action) => {
         let post = { ...action.post };
-    
+
         return {
           ...state,
           posts: [...state.posts, post],
@@ -16,7 +16,7 @@ const _postReducer = createReducer(
         const updatedPosts = state.posts.map((post) => {
           return action.post.id === post.id ? action.post : post;
         });
-    
+
         return {
           ...state,
           posts: updatedPosts,
@@ -26,7 +26,7 @@ const _postReducer = createReducer(
         const updatedPosts = state.posts.filter((post) => {
           return post.id !== id;
         });
-    
+
         return {
           ...state,
           posts: updatedPosts,

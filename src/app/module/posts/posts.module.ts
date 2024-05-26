@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from './post-list/state/posts.effects';
 
-
 @NgModule({
   declarations: [
     PostsComponent,

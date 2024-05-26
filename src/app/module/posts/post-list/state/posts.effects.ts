@@ -25,7 +25,6 @@ export class PostsEffects {
       })
     );
   });
-
   addPost$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(addPost),
@@ -39,7 +38,6 @@ export class PostsEffects {
       })
     );
   });
-
   updatePost$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(updatePost),

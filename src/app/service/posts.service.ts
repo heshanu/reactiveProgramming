@@ -25,8 +25,7 @@ export class PostsService {
           this.store.dispatch(setLoadingSpinner({status:false}));
           return posts;
         })
-      );
-  }
+      )};
 
   addPost(post: PostInterface): Observable<{ name: string }> {
     return this.http.post<{ name: string }>(
@@ -34,7 +33,6 @@ export class PostsService {
       post
     );
   }
-
   updatePost(post: PostInterface) {
     const postData = {
       title: post.title,
@@ -46,11 +44,9 @@ export class PostsService {
       postData
     );
   }
-
   deletePost(id: string) {
     return this.http.delete(
       `https://vue-completecourse.firebaseio.com/posts/${id}.json`
     );
   }
-
 }
